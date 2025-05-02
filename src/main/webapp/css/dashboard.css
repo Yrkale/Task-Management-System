@@ -1,0 +1,76 @@
+/* Table Container */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+/* Main Table Styling */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table Header */
+.dashboard-table thead {
+  background-color: #2d87f0;
+  color: white;
+}
+
+.dashboard-table th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table Body */
+.dashboard-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+/* Alternate Row Background */
+.dashboard-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+.dashboard-table tr:hover {
+  background-color: #eaf3ff;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive Text */
+.dashboard-table th, .dashboard-table td {
+  font-size: 15px;
+}
+
+/* Optional: Button or Link inside table */
+.dashboard-table a, .dashboard-table button {
+  background-color: #2d87f0;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dashboard-table a:hover, .dashboard-table button:hover {
+  background-color: #0b5ec5;
+}
+
+
+
+
+
+
+ 
+

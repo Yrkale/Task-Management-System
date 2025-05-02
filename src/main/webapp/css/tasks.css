@@ -1,0 +1,78 @@
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.btn {
+    margin-top: 20px;     
+    padding: 10px 20px;
+    background-color: #2e86de;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #2169b5;
+}
+
+.assign-btn {
+    padding: 6px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.assign-btn:hover {
+    background-color: #218838;
+}
+
+.assigned {
+    background-color: #ffc107;
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: #212529;
+    font-weight: bold;
+}
+
+.toast {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    animation: fadeout 2s forwards 3s;
+}
+
+@keyframes fadeout {
+    to { opacity: 0; display: none; }
+}
