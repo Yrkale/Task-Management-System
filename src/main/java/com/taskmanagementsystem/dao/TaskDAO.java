@@ -204,6 +204,58 @@ public class TaskDAO {
         }
 		return rowUpdated;
     }
+    
+    
+    // =----------------------------
+    
+    
+    public List<Task> getAllRunningTasksUnderManager(int employeeId, String status) {
+        List<Task> tasks = new ArrayList<>();
+
+        try (Connection conn = DBConnection.getConnection()) {
+            // Step 1: Get the manager ID of the current employee
+            String getManagerIdQuery = "SELECT manager_id FROM users WHERE id = ?";
+            int managerId = -1;
+
+            try (PreparedStatement stmt = conn.prepareStatement(getManagerIdQuery)) {
+                stmt.setInt(1, employeeId);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    managerId = rs.getInt("manager_id");
+                }
+            }
+
+            // Step 2: If manager exists, get all tasks created by this manager
+            if (managerId != -1) {
+                String query = "SELECT * FROM tasks WHERE manager_id = ? AND tStatus = ?";
+                try (PreparedStatement ps = conn.prepareStatement(query)) {
+                    ps.setInt(1, managerId);
+                    ps.setString(2, status);
+
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        Task task = new Task();
+                        task.setId(rs.getInt("id"));
+                        task.setTaskName(rs.getString("task_name"));
+                        task.setDescription(rs.getString("description"));
+                        task.setEmployeeId(rs.getInt("employee_id"));
+                        task.settStatus(status);   //setStatus(rs.getString("status"));
+                        tasks.add(task);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return tasks;
+    }
+
+    
+    
+    //-=====================================
+    
+    
 
     
 }

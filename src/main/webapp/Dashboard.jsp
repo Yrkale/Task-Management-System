@@ -325,10 +325,10 @@
            </form>
        </li>
        <li>
-           <form action="EViewCompleatedTasks.jsp" method="get">
+           <form action="EViewAllRunningTastUnderhisManager.jsp" method="get">
                <input type="hidden" name="status" value="complete">
                <input type="hidden" name="employeeId" value="<%= userId %>">
-               <button type="submit" class="redirect_button" >View Completed Tasks</button>
+               <button type="submit" class="redirect_button" >View All Running Tasks </button>
            </form>
        </li>
    </ul>
