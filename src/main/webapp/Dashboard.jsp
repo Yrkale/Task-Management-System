@@ -187,16 +187,25 @@
                         <td><%= project.getManagerName() %></td>
                         <td><%= project.getStartDate() != null ? project.getStartDate() : "" %></td>
 						<td><%= project.getEndDate() != null ? project.getEndDate() : "" %></td>
-						<td><%= project.getProgressPercentage() %>%</td>
+						
+						
+						
+					
+					
+						 <td>
+                                <input type="number" name="progress" min="0" max="100" value="<%= project.getProgressPercentage() %>" />%
+                        </td>
 
                         <td>
-                            <select name="pStatus">
-                                <option value="ongoing" <%= "ongoing".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>Ongoing</option>
-                                <option value="completed" <%= "completed".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>Completed</option>
-                                <option value="on hold" <%= "on hold".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>On Hold</option>
-                            </select>
+                             <%= project.getpStatus() %>
                         </td>
                         <td>
+                        <select name="pStatus">
+                        
+                                   <option value="">Not On Hold</option>                        
+                                                    
+                                 <option value="on hold" <%= "on hold".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>On Hold</option>
+                            </select>
                             <button class="assign-btn" type="submit">Update</button>
                         </td>
                     </form>
@@ -263,25 +272,32 @@
          <tbody>
         <% for (Project project : assignedProjects) { %>
         <tr>
+        
+          <form action="UpdateProjectStatusServlet" method="post">
+                    <input type="hidden" name="projectId" value="<%= project.getId() %>">
+                    
             <td><%= project.getId() %></td>
             <td><%= project.getName() %></td>
             <td><%= project.getDescription() %></td>
              <td><%= project.getStartDate() != null ? project.getStartDate() : "" %></td>
 			<td><%= project.getEndDate() != null ? project.getEndDate() : "" %></td>
-			<td><%= project.getProgressPercentage() %>%</td>
+			
+			
+			 <td>
+                 <input type="number" name="progress" min="0" max="100" value="<%= project.getProgressPercentage() %>" />%
+            </td>
+			
+
+
             
             <td><%= project.getpStatus() != null ? project.getpStatus() : "Null" %></td>
             <td>
-                <form action="UpdateProjectStatusServlet" method="post">
-                    <input type="hidden" name="projectId" value="<%= project.getId() %>">
+              
                     
                     <!-- this if use to restrist change of pstetus if is onhold set by p owner for manager -->
                    <% if(project.getpStatus() != null && !project.getpStatus().equalsIgnoreCase("on hold")) { %>
                     
-                    <select name="pStatus">
-                         <option value="ongoing" <%= "ongoing".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>Ongoing</option>
-                        <option value="completed" <%= "completed".equalsIgnoreCase(project.getpStatus()) ? "selected" : "" %>>Completed</option>
-                    </select>
+                    <input type="hidden" name="pStatus">  
                     
                     <input class="assign-btn" type="submit" value="Update">
                     
@@ -338,6 +354,7 @@
 </div>
 
 <% } %>
+
 
   </div>
 

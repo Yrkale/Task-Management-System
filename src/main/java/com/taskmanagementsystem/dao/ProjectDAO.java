@@ -116,22 +116,70 @@ public class ProjectDAO {
     }
     
  // Add this method in ProjectDAO.java
-    public boolean updateProjectStatus(int projectId, String pStatus) {
-        String sql = "UPDATE projects SET p_status = ? WHERE id = ?";
+    public boolean updateProjectStatus(int projectId, String pStatus, int progress) {
+    	
+    	if(progress==100)
+    	{
+    		  String sql = "UPDATE projects SET progress_percentage = ? , p_status = ? WHERE id = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+    	        try (Connection conn = DBConnection.getConnection();
+    	             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, pStatus);
-            ps.setInt(2, projectId);
+    	            ps.setInt(1, progress);
+    	        	ps.setString(2, "Completed");
+    	            ps.setInt(3, projectId);
 
-            int rowsUpdated = ps.executeUpdate();
-            return rowsUpdated > 0;
+    	            int rowsUpdated = ps.executeUpdate();
+    	            return rowsUpdated > 0;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	            return false;
+    	        }
+    		
+    	}
+    	
+    	else if(pStatus.equalsIgnoreCase("On hold"))
+    	{
+    		 String sql = "UPDATE projects SET p_status = ? , progress_percentage = ? WHERE id = ?";
+
+ 	        try (Connection conn = DBConnection.getConnection();
+ 	             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+ 	            ps.setString(1, "On hold");
+ 	            ps.setInt(2, progress);
+ 	            ps.setInt(3, projectId);
+
+ 	            int rowsUpdated = ps.executeUpdate();
+ 	            return rowsUpdated > 0;
+
+ 	        } catch (Exception e) {
+ 	            e.printStackTrace();
+ 	            return false;
+ 	        }
+    		
+    	}
+    	
+    	else
+    	{
+    		  String sql = "UPDATE projects SET p_status = ? , progress_percentage = ? WHERE id = ?";
+
+    	        try (Connection conn = DBConnection.getConnection();
+    	             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+    	            ps.setString(1, "Ongoing");
+    	            ps.setInt(2, progress);
+    	            ps.setInt(3, projectId);
+
+    	            int rowsUpdated = ps.executeUpdate();
+    	            return rowsUpdated > 0;
+
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	            return false;
+    	        }
+    	}
+      
     }
 
 }

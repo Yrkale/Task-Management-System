@@ -42,7 +42,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Task ID</th>
                     <th>Task Name</th>
                     <th>Description</th>
                     <th>Status</th>

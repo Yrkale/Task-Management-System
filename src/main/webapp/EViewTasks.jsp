@@ -87,10 +87,7 @@
                                 <input type="number" name="progress" min="0" max="100" value="<%= task.getProgressPercentage() %>" />%
                             </td>
                             <td>
-                                <select name="tstatus" required>
-                                    <option value="ongoing" <%= "ongoing".equals(task.gettStatus()) ? "selected" : "" %>>Ongoing</option>
-                                    <option value="complete" <%= "complete".equals(task.gettStatus()) ? "selected" : "" %>>Complete</option>
-                                </select>
+                                <%= task.gettStatus() %>
                             </td>
                              
                             <td>

@@ -17,9 +17,12 @@ public class UpdateProjectStatusServlet extends HttpServlet {
 
         int projectId = Integer.parseInt(request.getParameter("projectId"));
         String pStatus = request.getParameter("pStatus");
+        int progress = Integer.parseInt(request.getParameter("progress"));
+        
+        
 
         ProjectDAO projectDAO = new ProjectDAO();
-        boolean success = projectDAO.updateProjectStatus(projectId, pStatus);
+        boolean success = projectDAO.updateProjectStatus(projectId, pStatus, progress);
 
         if (success) {
             // Redirect back to dashboard or project list

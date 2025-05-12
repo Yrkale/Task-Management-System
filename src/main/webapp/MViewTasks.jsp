@@ -26,7 +26,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Task ID</th>
+                    
                     <th>Task Name</th>
                     <th>Description</th>
                     <th>Priority</th>
@@ -46,6 +47,7 @@
                 <% for (Task task : tasks) { %>
                     <tr>
                         <td><%= task.getId() %></td>
+                         
                         <td><%= task.getTaskName() %></td>
                         <td><%= task.getDescription() %></td>
                         <td><%= task.getPriority() %></td>
