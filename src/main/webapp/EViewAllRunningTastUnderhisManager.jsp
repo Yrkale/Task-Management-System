@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int employeeId = Integer.parseInt(request.getParameter("employeeId"));
-    String status = "ongoing"; // fixed to show only running tasks
+    String status = "ongoing"; //  show only obgoing tasks
 
     TaskDAO taskDAO = new TaskDAO();
     List<Task> tasks = taskDAO.getAllRunningTasksUnderManager(employeeId, status);
@@ -33,7 +33,7 @@
         .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50; /* Green background */
+    background-color: #4CAF50; /* Green background ahe */
     color: white;
     text-decoration: none;
     font-weight: bold;

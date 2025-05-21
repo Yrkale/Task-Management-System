@@ -8,7 +8,7 @@ public class Task {
     private String taskName;
     private String description;
     private String priority;
-    private Date dueDate;               // ✅ changed to Date
+    private Date dueDate;               
     private String tStatus;
 
     private int projectId;
@@ -17,9 +17,9 @@ public class Task {
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
-    // ✅ New fields added
+     
     private String remark;
-    private Date completionDate;        // ✅ changed to Date
+    private Date completionDate;         
     private int progressPercentage;
 
     // --- Getters and Setters ---

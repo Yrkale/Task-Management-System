@@ -61,7 +61,7 @@ public class CreateTaskServlet extends HttpServlet {
                 task.setPriority(priorities[i]);
                 task.setDueDate(java.sql.Date.valueOf(dueDates[i]));
                 task.settStatus("Not Started"); // Default status
-                task.setManagerId(manager.getId()); // ✅ Important: Set Manager ID
+                task.setManagerId(manager.getId()); // Important Set Manager ID
                 tasks.add(task);
             }
 

@@ -13,6 +13,9 @@ import com.taskmanagementsystem.model.Task;
 import com.taskmanagementsystem.util.DBConnection;
 
 public class TaskDAO {
+	
+	
+// ---------------------------------------------------------------------------------------------------
 
     public boolean createTasks(List<Task> tasks) throws Exception {
         String sql = "INSERT INTO tasks (task_name, description, priority, due_date, tStatus, project_id, manager_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -52,7 +55,11 @@ public class TaskDAO {
             return false;
         }
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------
 
+   
     public List<Integer> getAllEmployeeIds() {
         List<Integer> employeeIds = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();
@@ -68,6 +75,9 @@ public class TaskDAO {
         }
         return employeeIds;
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------   
 
     public boolean assignTaskToEmployee(int taskId, int employeeId) {
         boolean updated = false;
@@ -84,7 +94,10 @@ public class TaskDAO {
         }
         return updated;
     }
+    
+// ---------------------------------------------------------------------------------------------------    
 
+   
     public List<Task> getTasksByManagerId(int managerId) {
         List<Task> tasks = new ArrayList<>();
 
@@ -119,6 +132,9 @@ public class TaskDAO {
 
         return tasks;
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------    
 
     public List<Task> getTasksByEmployeeId(int id) {
         List<Task> tasks = new ArrayList<>();
@@ -157,6 +173,8 @@ public class TaskDAO {
         return tasks;
     }
     
+    
+// ---------------------------------------------------------------------------------------------------    
     
     
     public boolean updateTaskByEmployee(Task task) {
@@ -206,7 +224,7 @@ public class TaskDAO {
     }
     
     
-    // =----------------------------
+// ---------------------------------------------------------------------------------------------------
     
     
     public List<Task> getAllRunningTasksUnderManager(int employeeId, String status) {
@@ -253,7 +271,7 @@ public class TaskDAO {
 
     
     
-    //-=====================================
+// ---------------------------------------------------------------------------------------------------
     
     
 

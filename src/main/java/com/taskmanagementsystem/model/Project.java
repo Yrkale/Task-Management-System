@@ -27,8 +27,7 @@ public class Project {
     {
     	return managerName;
     }
-
-    // Getters and Setters
+    
 
     public int getId() {
         return id;

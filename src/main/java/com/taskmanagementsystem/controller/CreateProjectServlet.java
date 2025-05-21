@@ -21,7 +21,7 @@ public class CreateProjectServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        projectDAO = new ProjectDAO(); // Initialize DAO once
+        projectDAO = new ProjectDAO();  
     }
 
     @Override

@@ -33,10 +33,10 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
 
             if (user != null) {
-                // ✅ Store the full User object in session
+                // Store the full User object in session
                 session.setAttribute("loggedInUser", user);
 
-                // ✅ Redirect to a common dashboard.jsp
+                // Redirect to a common dashboard.jsp
                 response.sendRedirect("Dashboard.jsp");
             } else {
                 session.setAttribute("loginError", "Invalid email or password.");

@@ -62,14 +62,13 @@ public class addEmployeeServlet extends HttpServlet {
 			request.getRequestDispatcher("MAddEmployee.jsp").forward(request, response);
 		}
 		
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e) {			 
 			e.printStackTrace();
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
+			 
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			 
 			e.printStackTrace();
 		}
 		

@@ -25,8 +25,8 @@ public class UpdateProjectStatusServlet extends HttpServlet {
         boolean success = projectDAO.updateProjectStatus(projectId, pStatus, progress);
 
         if (success) {
-            // Redirect back to dashboard or project list
-            response.sendRedirect("Dashboard.jsp");  // Or wherever your project list is shown
+             
+            response.sendRedirect("Dashboard.jsp");   
         } else {
             response.getWriter().println("Failed to update project status.");
         }

@@ -1,7 +1,7 @@
 package com.taskmanagementsystem.model;
 
 public class User {
-    private int id;             // Added id field
+    private int id;              
     private String name;
     private String email;
     private String password;
@@ -31,7 +31,7 @@ public class User {
         this.managerId = managerId;
     }
 
-    // Getter and Setter for id
+    
     public int getId() {
         return id;
     }
@@ -39,8 +39,7 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-    // Getters and Setters for other fields
+ 
     public String getRole() {
         return role;
     }

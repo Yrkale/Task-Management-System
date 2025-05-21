@@ -7,6 +7,9 @@ import com.taskmanagementsystem.model.Project;
 import com.taskmanagementsystem.util.DBConnection;
 
 public class ProjectDAO {
+	
+	
+// ---------------------------------------------------------------------------------------------------
 
     public List<Project> getAllProjects() {
         List<Project> list = new ArrayList<>();
@@ -40,6 +43,10 @@ public class ProjectDAO {
         return list;
     }
 
+    
+// ---------------------------------------------------------------------------------------------------
+    
+    
     public boolean createProject(Project project) {
         boolean success = false;
         String sql = "INSERT INTO projects (name, description, manager_id, p_status, start_date, end_date, priority, progress_percentage, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
@@ -63,6 +70,9 @@ public class ProjectDAO {
         }
         return success;
     }
+    
+
+// ---------------------------------------------------------------------------------------------------    
 
 
     public List<Project> getProjectsByManagerId(int managerId) {
@@ -95,7 +105,12 @@ public class ProjectDAO {
 
         return projectList;
     }
+    
+   
+    
+// ---------------------------------------------------------------------------------------------------    
 
+ 
     public boolean isProjectManagedBy(int projectId, int managerId) {
         String sql = "SELECT COUNT(*) FROM projects WHERE id = ? AND manager_id = ?";
         
@@ -115,7 +130,10 @@ public class ProjectDAO {
         }
     }
     
- // Add this method in ProjectDAO.java
+    
+// ---------------------------------------------------------------------------------------------------
+    
+    
     public boolean updateProjectStatus(int projectId, String pStatus, int progress) {
     	
     	if(progress==100)
@@ -181,5 +199,9 @@ public class ProjectDAO {
     	}
       
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------
+    
 
 }

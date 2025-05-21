@@ -24,7 +24,7 @@ public class AssignEmployeeServlet extends HttpServlet {
 
         try {
             int taskId = Integer.parseInt(request.getParameter("taskId"));
-            int employeeId = Integer.parseInt(request.getParameter("employeeId")); // ✅ new line to read selected employee
+            int employeeId = Integer.parseInt(request.getParameter("employeeId")); //selected employee ID
 
             // Update task with selected employee
             taskDAO.assignTaskToEmployee(taskId, employeeId);

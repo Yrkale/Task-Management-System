@@ -171,7 +171,7 @@
                 <th>EndDate</th>
                 <th>Progress</th>
                 <th>Status</th>
-                <th>Action</th> <!-- New Column for Update Button -->
+                <th>Action</th>  
             </tr>
              </thead>
              <tbody>
@@ -467,7 +467,7 @@
 }
 
 .redirect_button:hover {
-  background-color: #007BFF; /* Bootstrap Primary Blue */
+  background-color: #007BFF; /*  Blue */
   color: #fff;
   border: 1px solid #0056b3;
   transform: translateY(-2px);
@@ -627,16 +627,11 @@ display: grid;
   line-height: 4px;
 
 }
-
-
+ 
 
 
 </style>
-
-
-
-
-
+ 
 
 </body>
 </html>

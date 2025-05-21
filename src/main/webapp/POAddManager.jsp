@@ -20,7 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Manager</title>
-    <link rel="stylesheet" href="css/add_manager.css"> <!-- Reuse same CSS for consistency -->
+    <link rel="stylesheet" href="css/add_manager.css"> 
 </head>
 <body>
     <div class="form-container">

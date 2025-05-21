@@ -11,6 +11,8 @@ import com.taskmanagementsystem.model.User;
 import com.taskmanagementsystem.util.DBConnection;
 
 public class UserDAO {
+	
+// ---------------------------------------------------------------------------------------------------
 
     public User authenticateUser(String email, String password) throws Exception {
         String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
@@ -46,6 +48,8 @@ public class UserDAO {
 
         return null; // If authentication failed
     }
+    
+// ---------------------------------------------------------------------------------------------------    
 
     public boolean registerUser(User user) throws Exception {
         String insertSql = "INSERT INTO users (name, email, password, role, manager_id) VALUES (?, ?, ?, ?, ?)";
@@ -70,6 +74,9 @@ public class UserDAO {
             throw e;
         }
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------
 
     private boolean isEmailExists(Connection conn, String email) throws SQLException {
         String checkSql = "SELECT COUNT(*) FROM users WHERE email = ?";
@@ -87,10 +94,12 @@ public class UserDAO {
         }
     }
     
+
+// ---------------------------------------------------------------------------------------------------    
     
-    
-// this featch all manager for project owner (but if we have multiple po then we should get manager 
+// this featch all manager for project owner (but if we have multiple po then we should get manager     
     //  by their manager id column which is same as po .
+    
     public List<User> getAllManagers() {
         List<User> managers = new ArrayList<>();
         String sql = "SELECT id, name, email FROM users WHERE role = 'manager'";
@@ -114,6 +123,7 @@ public class UserDAO {
         return managers;
     }
     
+// ---------------------------------------------------------------------------------------------------    
     
 // this method is not in use
     public List<User> getAllEmployees() {
@@ -140,12 +150,10 @@ public class UserDAO {
     }
     
     
+// ---------------------------------------------------------------------------------------------------    
     
     
-    
-    
-    
- // Add this method inside UserDAO.java
+   
 
     public List<User> getEmployeesByManagerId(int managerId) {
         List<User> employees = new ArrayList<>();
@@ -174,6 +182,9 @@ public class UserDAO {
         return employees;
     }
     
+    
+// ---------------------------------------------------------------------------------------------------
+    
     public boolean checkPassword(int id, String oldPassword) {
         String sql = "SELECT * FROM users WHERE id=? AND password=?";
         try (Connection conn = DBConnection.getConnection(); 
@@ -188,6 +199,9 @@ public class UserDAO {
         }
         return false;
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------    
 
     public boolean updatePassword(int id, String newPassword) {
         String sql = "UPDATE users SET password=? WHERE id=?";
@@ -201,6 +215,9 @@ public class UserDAO {
         }
         return false;
     }
+    
+    
+// ---------------------------------------------------------------------------------------------------
 
 
 }

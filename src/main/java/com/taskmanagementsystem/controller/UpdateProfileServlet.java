@@ -33,7 +33,7 @@ public class UpdateProfileServlet extends HttpServlet {
             }
         }
 
-        // Forward back to the dashboard or show message
+        // Forward back to the Dashboard or show message
         request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
     }
 }
